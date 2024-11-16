@@ -9,6 +9,7 @@
 `ifdef MODEL_TECH
     `include "structs.sv"
 `endif
+`include "enum.sv"
 module module_top (
     input logic clk  ,
     input logic rst_n
@@ -169,7 +170,7 @@ module module_top (
         .DCACHE_BLOCK_DW        (DC_DW),
         .REALISTIC              (REALISTIC),
         .DELAY_CYCLES           (DELAY_CYCLES),
-        .FILE_NAME              ("memory.mem"),
+        .FILE_NAME              ("memory.txt"),
         .ID_W                   (4),
         .ADDR_W                 (32),
         .AXI_DW                 (32),

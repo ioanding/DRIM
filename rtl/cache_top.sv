@@ -1,6 +1,7 @@
 `ifdef MODEL_TECH
     `include "structs.sv"
 `endif
+`include "enum.sv"
 module cache_top #(
   parameter ADDR_BITS     = 32,  // default: 32
   parameter ISTR_DW       = 32,  // default: 32

@@ -52,3 +52,5 @@
 ../rtl/vga_controller.sv
 ../rtl/wait_buffer.sv
 
+../rtl/main_memory_top.sv
+../rtl/cache_top.sv

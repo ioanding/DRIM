@@ -1,3 +1,4 @@
+`include "enum.sv"
 module main_memory_top #(
   parameter USE_AXI         = 0,
   parameter L2_BLOCK_DW     = 128 ,
@@ -7,7 +8,7 @@ module main_memory_top #(
   parameter DCACHE_BLOCK_DW = 256 ,
   parameter REALISTIC       = 1   ,
   parameter DELAY_CYCLES    = 50  ,
-  parameter FILE_NAME       = "memory.mem",
+  parameter FILE_NAME       = "memory.txt",
   parameter ID_W            = 4,
   parameter ADDR_W          = 32,
   parameter AXI_DW          = 32,
@@ -123,7 +124,7 @@ main_memory #(
   .DCACHE_BLOCK_DW(DCACHE_BLOCK_DW),
   .REALISTIC      (REALISTIC),
   .DELAY_CYCLES   (DELAY_CYCLES),
-  .FILE_NAME      ("memory.mem")
+  .FILE_NAME      (FILE_NAME)
 ) main_memory (
   .clk              (clk_i             ),
   .rst_n            (rst_n_i           ),
