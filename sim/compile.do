@@ -3,6 +3,7 @@ file delete -force work
 
 vlib work
 
+vlog -sv +incdir+../rtl/axi/include +incdir+../rtl/cc/include -f files_axi.f
 vlog -f files_rtl.f -f files_sim.f +incdir+../rtl +incdir+../svas/ +define+INCLUDE_SVAS
 
 #vsim -novopt work.tb -onfinish "stop"

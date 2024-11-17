@@ -3,3 +3,5 @@
 /sim/flushes.txt
 /sim/transcript
 /sim/vsim.wlf
+sim/commits_correct.txt
+sim/flushes_correct.txt

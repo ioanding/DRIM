@@ -159,7 +159,7 @@ module module_top (
         end
     end
     //////////////////////////////////////////////////
-    //               Main Memory Module             //
+    //               Main Memory Module    to be deleted 
     //////////////////////////////////////////////////
     main_memory_top # (
         .USE_AXI                (0),
