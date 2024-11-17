@@ -705,7 +705,7 @@ module module_top (
     axi_sim_mem_intf #(
         .AXI_ADDR_WIDTH      (AXI_ADDR_WIDTH),
         .AXI_DATA_WIDTH      (AXI_DATA_WIDTH),
-        .AXI_ID_WIDTH        (AXI_ID_WIDTH),
+        .AXI_ID_WIDTH        (AXI_ID_WIDTH+1),
         .AXI_USER_WIDTH      (AXI_USER_WIDTH),
         .WARN_UNINITIALIZED  (WARN_UNINITIALIZED),
         .APPL_DELAY          (APPL_DELAY),

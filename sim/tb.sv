@@ -63,7 +63,7 @@ initial begin
     rst_n=1;
     @(posedge clk);
     rst_n=0;
-    @(posedge clk);
+    @(posedge clk);@(posedge clk);@(posedge clk);
     rst_n=1;
     @(posedge clk);
     $display("Testbench Starting...");
