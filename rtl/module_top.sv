@@ -106,138 +106,138 @@ module module_top (
     // logic                  ic_AXI_RVALID , dc_AXI_RVALID ;
     // logic                  ic_AXI_RREADY , dc_AXI_RREADY ;
 
-    wire  [3:0] icache_awid;
-    wire [31:0] icache_awaddr;
-    wire  [7:0] icache_awlen;
-    wire  [2:0] icache_awsize;
-    wire  [1:0] icache_awburst;
-    wire        icache_awlock;
-    wire  [3:0] icache_awcache;
-    wire  [2:0] icache_awprot;
-    wire  [3:0] icache_awregion;
-    wire  [0:0] icache_awuser;
-    wire  [3:0] icache_awqos;
-    wire        icache_awvalid;
-    wire        icache_awready;
-    wire  [3:0] icache_arid;
-    wire [31:0] icache_araddr;
-    wire  [7:0] icache_arlen;
-    wire  [2:0] icache_arsize;
-    wire  [1:0] icache_arburst;
-    wire        icache_arlock;
-    wire  [3:0] icache_arcache;
-    wire  [2:0] icache_arprot;
-    wire  [3:0] icache_arregion;
-    wire  [0:0] icache_aruser;
-    wire  [3:0] icache_arqos;
-    wire        icache_arvalid;
-    wire        icache_arready;
-    wire [31:0] icache_wdata;
-    wire  [3:0] icache_wstrb;
-    wire        icache_wlast;
-    wire  [0:0] icache_wuser;
-    wire        icache_wvalid;
-    wire        icache_wready;
-    wire  [3:0] icache_bid;
-    wire  [1:0] icache_bresp;
-    wire        icache_bvalid;
-    wire  [0:0] icache_buser;
-    wire        icache_bready;
-    wire  [3:0] icache_rid;
-    wire [31:0] icache_rdata;
-    wire  [1:0] icache_rresp;
-    wire        icache_rlast;
-    wire  [0:0] icache_ruser;
-    wire        icache_rvalid;
-    wire        icache_rready;
-    wire  [3:0] dcache_awid;
-    wire [31:0] dcache_awaddr;
-    wire  [7:0] dcache_awlen;
-    wire  [2:0] dcache_awsize;
-    wire  [1:0] dcache_awburst;
-    wire        dcache_awlock;
-    wire  [3:0] dcache_awcache;
-    wire  [2:0] dcache_awprot;
-    wire  [3:0] dcache_awregion;
-    wire  [0:0] dcache_awuser;
-    wire  [3:0] dcache_awqos;
-    wire        dcache_awvalid;
-    wire        dcache_awready;
-    wire  [3:0] dcache_arid;
-    wire [31:0] dcache_araddr;
-    wire  [7:0] dcache_arlen;
-    wire  [2:0] dcache_arsize;
-    wire  [1:0] dcache_arburst;
-    wire        dcache_arlock;
-    wire  [3:0] dcache_arcache;
-    wire  [2:0] dcache_arprot;
-    wire  [3:0] dcache_arregion;
-    wire  [0:0] dcache_aruser;
-    wire  [3:0] dcache_arqos;
-    wire        dcache_arvalid;
-    wire        dcache_arready;
-    wire [31:0] dcache_wdata;
-    wire  [3:0] dcache_wstrb;
-    wire        dcache_wlast;
-    wire  [0:0] dcache_wuser;
-    wire        dcache_wvalid;
-    wire        dcache_wready;
-    wire  [3:0] dcache_bid;
-    wire  [1:0] dcache_bresp;
-    wire        dcache_bvalid;
-    wire  [0:0] dcache_buser;
-    wire        dcache_bready;
-    wire  [3:0] dcache_rid;
-    wire [31:0] dcache_rdata;
-    wire  [1:0] dcache_rresp;
-    wire        dcache_rlast;
-    wire  [0:0] dcache_ruser;
-    wire        dcache_rvalid;
-    wire        dcache_rready;
-    wire  [4:0] mem_one_awid;
-    wire [31:0] mem_one_awaddr;
-    wire  [7:0] mem_one_awlen;
-    wire  [2:0] mem_one_awsize;
-    wire  [1:0] mem_one_awburst;
-    wire        mem_one_awlock;
-    wire  [3:0] mem_one_awcache;
-    wire  [2:0] mem_one_awprot;
-    wire  [3:0] mem_one_awregion;
-    wire  [0:0] mem_one_awuser;
-    wire  [3:0] mem_one_awqos;
-    wire        mem_one_awvalid;
-    wire        mem_one_awready;
-    wire  [4:0] mem_one_arid;
-    wire [31:0] mem_one_araddr;
-    wire  [7:0] mem_one_arlen;
-    wire  [2:0] mem_one_arsize;
-    wire  [1:0] mem_one_arburst;
-    wire        mem_one_arlock;
-    wire  [3:0] mem_one_arcache;
-    wire  [2:0] mem_one_arprot;
-    wire  [3:0] mem_one_arregion;
-    wire  [0:0] mem_one_aruser;
-    wire  [3:0] mem_one_arqos;
-    wire        mem_one_arvalid;
-    wire        mem_one_arready;
-    wire [31:0] mem_one_wdata;
-    wire  [3:0] mem_one_wstrb;
-    wire        mem_one_wlast;
-    wire  [0:0] mem_one_wuser;
-    wire        mem_one_wvalid;
-    wire        mem_one_wready;
-    wire  [4:0] mem_one_bid;
-    wire  [1:0] mem_one_bresp;
-    wire        mem_one_bvalid;
-    wire  [0:0] mem_one_buser;
-    wire        mem_one_bready;
-    wire  [4:0] mem_one_rid;
-    wire [31:0] mem_one_rdata;
-    wire  [1:0] mem_one_rresp;
-    wire        mem_one_rlast;
-    wire  [0:0] mem_one_ruser;
-    wire        mem_one_rvalid;
-    wire        mem_one_rready;
+    logic  [3:0] icache_awid;
+    logic [31:0] icache_awaddr;
+    logic  [7:0] icache_awlen;
+    logic  [2:0] icache_awsize;
+    logic  [1:0] icache_awburst;
+    logic        icache_awlock;
+    logic  [3:0] icache_awcache;
+    logic  [2:0] icache_awprot;
+    logic  [3:0] icache_awregion;
+    logic  [0:0] icache_awuser;
+    logic  [3:0] icache_awqos;
+    logic        icache_awvalid;
+    logic        icache_awready;
+    logic  [3:0] icache_arid;
+    logic [31:0] icache_araddr;
+    logic  [7:0] icache_arlen;
+    logic  [2:0] icache_arsize;
+    logic  [1:0] icache_arburst;
+    logic        icache_arlock;
+    logic  [3:0] icache_arcache;
+    logic  [2:0] icache_arprot;
+    logic  [3:0] icache_arregion;
+    logic  [0:0] icache_aruser;
+    logic  [3:0] icache_arqos;
+    logic        icache_arvalid;
+    logic        icache_arready;
+    logic [31:0] icache_wdata;
+    logic  [3:0] icache_wstrb;
+    logic        icache_wlast;
+    logic  [0:0] icache_wuser;
+    logic        icache_wvalid;
+    logic        icache_wready;
+    logic  [3:0] icache_bid;
+    logic  [1:0] icache_bresp;
+    logic        icache_bvalid;
+    logic  [0:0] icache_buser;
+    logic        icache_bready;
+    logic  [3:0] icache_rid;
+    logic [31:0] icache_rdata;
+    logic  [1:0] icache_rresp;
+    logic        icache_rlast;
+    logic  [0:0] icache_ruser;
+    logic        icache_rvalid;
+    logic        icache_rready;
+    logic  [3:0] dcache_awid;
+    logic [31:0] dcache_awaddr;
+    logic  [7:0] dcache_awlen;
+    logic  [2:0] dcache_awsize;
+    logic  [1:0] dcache_awburst;
+    logic        dcache_awlock;
+    logic  [3:0] dcache_awcache;
+    logic  [2:0] dcache_awprot;
+    logic  [3:0] dcache_awregion;
+    logic  [0:0] dcache_awuser;
+    logic  [3:0] dcache_awqos;
+    logic        dcache_awvalid;
+    logic        dcache_awready;
+    logic  [3:0] dcache_arid;
+    logic [31:0] dcache_araddr;
+    logic  [7:0] dcache_arlen;
+    logic  [2:0] dcache_arsize;
+    logic  [1:0] dcache_arburst;
+    logic        dcache_arlock;
+    logic  [3:0] dcache_arcache;
+    logic  [2:0] dcache_arprot;
+    logic  [3:0] dcache_arregion;
+    logic  [0:0] dcache_aruser;
+    logic  [3:0] dcache_arqos;
+    logic        dcache_arvalid;
+    logic        dcache_arready;
+    logic [31:0] dcache_wdata;
+    logic  [3:0] dcache_wstrb;
+    logic        dcache_wlast;
+    logic  [0:0] dcache_wuser;
+    logic        dcache_wvalid;
+    logic        dcache_wready;
+    logic  [3:0] dcache_bid;
+    logic  [1:0] dcache_bresp;
+    logic        dcache_bvalid;
+    logic  [0:0] dcache_buser;
+    logic        dcache_bready;
+    logic  [3:0] dcache_rid;
+    logic [31:0] dcache_rdata;
+    logic  [1:0] dcache_rresp;
+    logic        dcache_rlast;
+    logic  [0:0] dcache_ruser;
+    logic        dcache_rvalid;
+    logic        dcache_rready;
+    logic  [4:0] mem_one_awid;
+    logic [31:0] mem_one_awaddr;
+    logic  [7:0] mem_one_awlen;
+    logic  [2:0] mem_one_awsize;
+    logic  [1:0] mem_one_awburst;
+    logic        mem_one_awlock;
+    logic  [3:0] mem_one_awcache;
+    logic  [2:0] mem_one_awprot;
+    logic  [3:0] mem_one_awregion;
+    logic  [0:0] mem_one_awuser;
+    logic  [3:0] mem_one_awqos;
+    logic        mem_one_awvalid;
+    logic        mem_one_awready;
+    logic  [4:0] mem_one_arid;
+    logic [31:0] mem_one_araddr;
+    logic  [7:0] mem_one_arlen;
+    logic  [2:0] mem_one_arsize;
+    logic  [1:0] mem_one_arburst;
+    logic        mem_one_arlock;
+    logic  [3:0] mem_one_arcache;
+    logic  [2:0] mem_one_arprot;
+    logic  [3:0] mem_one_arregion;
+    logic  [0:0] mem_one_aruser;
+    logic  [3:0] mem_one_arqos;
+    logic        mem_one_arvalid;
+    logic        mem_one_arready;
+    logic [31:0] mem_one_wdata;
+    logic  [3:0] mem_one_wstrb;
+    logic        mem_one_wlast;
+    logic  [0:0] mem_one_wuser;
+    logic        mem_one_wvalid;
+    logic        mem_one_wready;
+    logic  [4:0] mem_one_bid;
+    logic  [1:0] mem_one_bresp;
+    logic        mem_one_bvalid;
+    logic  [0:0] mem_one_buser;
+    logic        mem_one_bready;
+    logic  [4:0] mem_one_rid;
+    logic [31:0] mem_one_rdata;
+    logic  [1:0] mem_one_rresp;
+    logic        mem_one_rlast;
+    logic  [0:0] mem_one_ruser;
+    logic        mem_one_rvalid;
+    logic        mem_one_rready;
 
 
     //////////////////////////////////////////////////
@@ -381,64 +381,64 @@ module module_top (
         .dcache_blocked         (cache_blocked),
         .dcache_served_output   (cache_fu_update),
 
-        .ic_m_axi_awvalid       (icache_awvalid)
-        .ic_m_axi_awready       (icache_awready)
-        .ic_m_axi_awaddr        (icache_awaddr)
-        .ic_m_axi_awburst       (icache_awburst)
-        .ic_m_axi_awlen         (icache_awlen)
-        .ic_m_axi_awsize        (icache_awsize)
-        .ic_m_axi_awid          (icache_awid)
-        .ic_m_axi_wvalid        (icache_wvalid)
-        .ic_m_axi_wready        (icache_wready)
-        .ic_m_axi_wdata         (icache_wdata)
-        .ic_m_axi_wlast         (icache_wlast)
-        .ic_m_axi_wstrb         (icache_wstrb)
-        .ic_m_axi_bid           (icache_bid)
-        .ic_m_axi_bresp         (icache_bresp)
-        .ic_m_axi_bvalid        (icache_bvalid)
-        .ic_m_axi_bready        (icache_bready)
-        .ic_m_axi_arready       (icache_arready)
-        .ic_m_axi_arvalid       (icache_arvalid)
-        .ic_m_axi_araddr        (icache_araddr)
-        .ic_m_axi_arburst       (icache_arburst)
-        .ic_m_axi_arlen         (icache_arlen)
-        .ic_m_axi_arsize        (icache_arsize)
-        .ic_m_axi_arid          (icache_arid)
-        .ic_m_axi_rdata         (icache_rdata)
-        .ic_m_axi_rlast         (icache_rlast)
-        .ic_m_axi_rid           (icache_rid)
-        .ic_m_axi_rresp         (icache_rresp)
-        .ic_m_axi_rvalid        (icache_rvalid)
-        .ic_m_axi_rready        (icache_rready)
+        .ic_m_axi_awvalid       (icache_awvalid),
+        .ic_m_axi_awready       (icache_awready),
+        .ic_m_axi_awaddr        (icache_awaddr),
+        .ic_m_axi_awburst       (icache_awburst),
+        .ic_m_axi_awlen         (icache_awlen),
+        .ic_m_axi_awsize        (icache_awsize),
+        .ic_m_axi_awid          (icache_awid),
+        .ic_m_axi_wvalid        (icache_wvalid),
+        .ic_m_axi_wready        (icache_wready),
+        .ic_m_axi_wdata         (icache_wdata),
+        .ic_m_axi_wlast         (icache_wlast),
+        .ic_m_axi_wstrb         (icache_wstrb),
+        .ic_m_axi_bid           (icache_bid),
+        .ic_m_axi_bresp         (icache_bresp),
+        .ic_m_axi_bvalid        (icache_bvalid),
+        .ic_m_axi_bready        (icache_bready),
+        .ic_m_axi_arready       (icache_arready),
+        .ic_m_axi_arvalid       (icache_arvalid),
+        .ic_m_axi_araddr        (icache_araddr),
+        .ic_m_axi_arburst       (icache_arburst),
+        .ic_m_axi_arlen         (icache_arlen),
+        .ic_m_axi_arsize        (icache_arsize),
+        .ic_m_axi_arid          (icache_arid),
+        .ic_m_axi_rdata         (icache_rdata),
+        .ic_m_axi_rlast         (icache_rlast),
+        .ic_m_axi_rid           (icache_rid),
+        .ic_m_axi_rresp         (icache_rresp),
+        .ic_m_axi_rvalid        (icache_rvalid),
+        .ic_m_axi_rready        (icache_rready),
 
-        .dc_m_axi_awvalid       (dcache_awvalid)
-        .dc_m_axi_awready       (dcache_awready)
-        .dc_m_axi_awaddr        (dcache_awaddr)
-        .dc_m_axi_awburst       (dcache_awburst)
-        .dc_m_axi_awlen         (dcache_awlen)
-        .dc_m_axi_awsize        (dcache_awsize)
-        .dc_m_axi_awid          (dcache_awid)
-        .dc_m_axi_wvalid        (dcache_wvalid)
-        .dc_m_axi_wready        (dcache_wready)
-        .dc_m_axi_wdata         (dcache_wdata)
-        .dc_m_axi_wlast         (dcache_wlast)
-        .dc_m_axi_wstrb         (dcache_wstrb)
-        .dc_m_axi_bid           (dcache_bid)
-        .dc_m_axi_bresp         (dcache_bresp)
-        .dc_m_axi_bvalid        (dcache_bvalid)
-        .dc_m_axi_bready        (dcache_bready)
-        .dc_m_axi_arready       (dcache_arready)
-        .dc_m_axi_arvalid       (dcache_arvalid)
-        .dc_m_axi_araddr        (dcache_araddr)
-        .dc_m_axi_arburst       (dcache_arburst)
-        .dc_m_axi_arlen         (dcache_arlen)
-        .dc_m_axi_arsize        (dcache_arsize)
-        .dc_m_axi_arid          (dcache_arid)
-        .dc_m_axi_rdata         (dcache_rdata)
-        .dc_m_axi_rlast         (dcache_rlast)
-        .dc_m_axi_rid           (dcache_rid)
-        .dc_m_axi_rresp         (dcache_rresp)
-        .dc_m_axi_rvalid        (dcache_rvalid)
+        .dc_m_axi_awvalid       (dcache_awvalid),
+        .dc_m_axi_awready       (dcache_awready),
+        .dc_m_axi_awaddr        (dcache_awaddr),
+        .dc_m_axi_awburst       (dcache_awburst),
+        .dc_m_axi_awlen         (dcache_awlen),
+        .dc_m_axi_awsize        (dcache_awsize),
+        .dc_m_axi_awid          (dcache_awid),
+        .dc_m_axi_wvalid        (dcache_wvalid),
+        .dc_m_axi_wready        (dcache_wready),
+        .dc_m_axi_wdata         (dcache_wdata),
+        .dc_m_axi_wlast         (dcache_wlast),
+        .dc_m_axi_wstrb         (dcache_wstrb),
+        .dc_m_axi_bid           (dcache_bid),
+        .dc_m_axi_bresp         (dcache_bresp),
+        .dc_m_axi_bvalid        (dcache_bvalid),
+        .dc_m_axi_bready        (dcache_bready),
+        .dc_m_axi_arready       (dcache_arready),
+        .dc_m_axi_arvalid       (dcache_arvalid),
+        .dc_m_axi_araddr        (dcache_araddr),
+        .dc_m_axi_arburst       (dcache_arburst),
+        .dc_m_axi_arlen         (dcache_arlen),
+        .dc_m_axi_arsize        (dcache_arsize),
+        .dc_m_axi_arid          (dcache_arid),
+        .dc_m_axi_rdata         (dcache_rdata),
+        .dc_m_axi_rlast         (dcache_rlast),
+        .dc_m_axi_rid           (dcache_rid),
+        .dc_m_axi_rresp         (dcache_rresp),
+        .dc_m_axi_rvalid        (dcache_rvalid),
         .dc_m_axi_rready        (dcache_rready)
         // // icache
         // .valid_out              (icache_valid_i),
@@ -471,8 +471,8 @@ module module_top (
     assign icache_arqos=4'd0;
     assign icache_aruser=0;
     assign icache_wuser=0;
-    assign icache_buser=0;
-    assign icache_ruser=0;
+    //assign icache_buser=0;
+    //assign icache_ruser=0;
     assign dcache_awlock=0;
     assign dcache_awcache=4'd0;
     assign dcache_awprot=3'd0;
@@ -486,8 +486,8 @@ module module_top (
     assign dcache_arqos=4'd0;
     assign dcache_aruser=0;
     assign dcache_wuser=0;
-    assign dcache_buser=0;
-    assign dcache_ruser=0;
+    //assign dcache_buser=0;
+    //assign dcache_ruser=0;
     assign mem_one_awlock=0;
     assign mem_one_awcache=4'd0;
     assign mem_one_awprot=3'd0;
@@ -507,6 +507,13 @@ module module_top (
     //////////////////////
     //   Interconnect   //
     //////////////////////
+    
+    AXI_BUS #(
+        .AXI_ADDR_WIDTH ( AXI_ADDR_WIDTH      ),
+        .AXI_DATA_WIDTH ( AXI_DATA_WIDTH      ),
+        .AXI_ID_WIDTH   ( AXI_ID_WIDTH+1 ),
+        .AXI_USER_WIDTH ( AXI_USER_WIDTH      )
+    ) mem_one_slv_bus ();
 
     axi_intercon axi_intercon (
         .clk_i              (clk),
@@ -599,107 +606,101 @@ module module_top (
         .o_dcache_ruser     (dcache_ruser),
         .o_dcache_rvalid    (dcache_rvalid),
         .i_dcache_rready    (dcache_rready),
-        .o_mem_one_awid     (mem_one_awid),
-        .o_mem_one_awaddr   (mem_one_awaddr),
-        .o_mem_one_awlen    (mem_one_awlen),
-        .o_mem_one_awsize   (mem_one_awsize),
-        .o_mem_one_awburst  (mem_one_awburst),
-        .o_mem_one_awlock   (mem_one_awlock),
-        .o_mem_one_awcache  (mem_one_awcache),
-        .o_mem_one_awprot   (mem_one_awprot),
-        .o_mem_one_awregion (mem_one_awregion),
-        .o_mem_one_awuser   (mem_one_awuser),
-        .o_mem_one_awqos    (mem_one_awqos),
-        .o_mem_one_awvalid  (mem_one_awvalid),
-        .i_mem_one_awready  (mem_one_awready),
-        .o_mem_one_arid     (mem_one_arid),
-        .o_mem_one_araddr   (mem_one_araddr),
-        .o_mem_one_arlen    (mem_one_arlen),
-        .o_mem_one_arsize   (mem_one_arsize),
-        .o_mem_one_arburst  (mem_one_arburst),
-        .o_mem_one_arlock   (mem_one_arlock),
-        .o_mem_one_arcache  (mem_one_arcache),
-        .o_mem_one_arprot   (mem_one_arprot),
-        .o_mem_one_arregion (mem_one_arregion),
-        .o_mem_one_aruser   (mem_one_aruser),
-        .o_mem_one_arqos    (mem_one_arqos),
-        .o_mem_one_arvalid  (mem_one_arvalid),
-        .i_mem_one_arready  (mem_one_arready),
-        .o_mem_one_wdata    (mem_one_wdata),
-        .o_mem_one_wstrb    (mem_one_wstrb),
-        .o_mem_one_wlast    (mem_one_wlast),
-        .o_mem_one_wuser    (mem_one_wuser),
-        .o_mem_one_wvalid   (mem_one_wvalid),
-        .i_mem_one_wready   (mem_one_wready),
-        .i_mem_one_bid      (mem_one_bid),
-        .i_mem_one_bresp    (mem_one_bresp),
-        .i_mem_one_bvalid   (mem_one_bvalid),
-        .i_mem_one_buser    (mem_one_buser),
-        .o_mem_one_bready   (mem_one_bready),
-        .i_mem_one_rid      (mem_one_rid),
-        .i_mem_one_rdata    (mem_one_rdata),
-        .i_mem_one_rresp    (mem_one_rresp),
-        .i_mem_one_rlast    (mem_one_rlast),
-        .i_mem_one_ruser    (mem_one_ruser),
-        .i_mem_one_rvalid   (mem_one_rvalid),
-        .o_mem_one_rready   (mem_one_rready));
+        .o_mem_one_awid     (mem_one_slv_bus.aw_id),
+        .o_mem_one_awaddr   (mem_one_slv_bus.aw_addr),
+        .o_mem_one_awlen    (mem_one_slv_bus.aw_len),
+        .o_mem_one_awsize   (mem_one_slv_bus.aw_size),
+        .o_mem_one_awburst  (mem_one_slv_bus.aw_burst),
+        .o_mem_one_awlock   (mem_one_slv_bus.aw_lock),
+        .o_mem_one_awcache  (mem_one_slv_bus.aw_cache),
+        .o_mem_one_awprot   (mem_one_slv_bus.aw_prot),
+        .o_mem_one_awregion (mem_one_slv_bus.aw_region),
+        .o_mem_one_awuser   (mem_one_slv_bus.aw_user),
+        .o_mem_one_awqos    (mem_one_slv_bus.aw_qos),
+        .o_mem_one_awvalid  (mem_one_slv_bus.aw_valid),
+        .i_mem_one_awready  (mem_one_slv_bus.aw_ready),
+        .o_mem_one_arid     (mem_one_slv_bus.ar_id),
+        .o_mem_one_araddr   (mem_one_slv_bus.ar_addr),
+        .o_mem_one_arlen    (mem_one_slv_bus.ar_len),
+        .o_mem_one_arsize   (mem_one_slv_bus.ar_size),
+        .o_mem_one_arburst  (mem_one_slv_bus.ar_burst),
+        .o_mem_one_arlock   (mem_one_slv_bus.ar_lock),
+        .o_mem_one_arcache  (mem_one_slv_bus.ar_cache),
+        .o_mem_one_arprot   (mem_one_slv_bus.ar_prot),
+        .o_mem_one_arregion (mem_one_slv_bus.ar_region),
+        .o_mem_one_aruser   (mem_one_slv_bus.ar_user),
+        .o_mem_one_arqos    (mem_one_slv_bus.ar_qos),
+        .o_mem_one_arvalid  (mem_one_slv_bus.ar_valid),
+        .i_mem_one_arready  (mem_one_slv_bus.ar_ready),
+        .o_mem_one_wdata    (mem_one_slv_bus.w_data),
+        .o_mem_one_wstrb    (mem_one_slv_bus.w_strb),
+        .o_mem_one_wlast    (mem_one_slv_bus.w_last),
+        .o_mem_one_wuser    (mem_one_slv_bus.w_user),
+        .o_mem_one_wvalid   (mem_one_slv_bus.w_valid),
+        .i_mem_one_wready   (mem_one_slv_bus.w_ready),
+        .i_mem_one_bid      (mem_one_slv_bus.b_id),
+        .i_mem_one_bresp    (mem_one_slv_bus.b_resp),
+        .i_mem_one_bvalid   (mem_one_slv_bus.b_valid),
+        .i_mem_one_buser    (mem_one_slv_bus.b_user),
+        .o_mem_one_bready   (mem_one_slv_bus.b_ready),
+        .i_mem_one_rid      (mem_one_slv_bus.r_id),
+        .i_mem_one_rdata    (mem_one_slv_bus.r_data),
+        .i_mem_one_rresp    (mem_one_slv_bus.r_resp),
+        .i_mem_one_rlast    (mem_one_slv_bus.r_last),
+        .i_mem_one_ruser    (mem_one_slv_bus.r_user),
+        .i_mem_one_rvalid   (mem_one_slv_bus.r_valid),
+        .o_mem_one_rready   (mem_one_slv_bus.r_ready));
+
+    assign mem_one_slv_bus.aw_atop = 6'd0;
 
     /////////////////////////
     // axi_mem_sim (ram) 1 //
     /////////////////////////
 
-    AXI_BUS #(
-        .AXI_ADDR_WIDTH ( AXI_ADDR_WIDTH      ),
-        .AXI_DATA_WIDTH ( AXI_DATA_WIDTH      ),
-        .AXI_ID_WIDTH   ( AXI_ID_WIDTH ),
-        .AXI_USER_WIDTH ( AXI_USER_WIDTH      )
-    ) mem_one_slv_bus ();
 
-    assign mem_one_slv_bus.aw.atop = 6'd0;
-    assign mem_one_slv_bus.aw_id        = mem_one_awid;
-    assign mem_one_slv_bus.aw_addr      = mem_one_awaddr;
-    assign mem_one_slv_bus.aw_len       = mem_one_awlen;
-    assign mem_one_slv_bus.aw_size      = mem_one_awsize;
-    assign mem_one_slv_bus.aw_burst     = mem_one_awburst;
-    assign mem_one_slv_bus.aw_lock      = mem_one_awlock;
-    assign mem_one_slv_bus.aw_cache     = mem_one_awcache;
-    assign mem_one_slv_bus.aw_prot      = mem_one_awprot;
-    assign mem_one_slv_bus.aw_region    = mem_one_awregion;
-    assign mem_one_slv_bus.aw_user      = mem_one_awuser;
-    assign mem_one_slv_bus.aw_qos       = mem_one_awqos;
-    assign mem_one_slv_bus.aw_valid     = mem_one_awvalid;
-    assign mem_one_slv_bus.aw_ready     = mem_one_awready;
-    assign mem_one_slv_bus.ar_id        = mem_one_arid;
-    assign mem_one_slv_bus.ar_addr      = mem_one_araddr;
-    assign mem_one_slv_bus.ar_len       = mem_one_arlen;
-    assign mem_one_slv_bus.ar_size      = mem_one_arsize;
-    assign mem_one_slv_bus.ar_burst     = mem_one_arburst;
-    assign mem_one_slv_bus.ar_lock      = mem_one_arlock;
-    assign mem_one_slv_bus.ar_cache     = mem_one_arcache;
-    assign mem_one_slv_bus.ar_prot      = mem_one_arprot;
-    assign mem_one_slv_bus.ar_region    = mem_one_arregion;
-    assign mem_one_slv_bus.ar_user      = mem_one_aruser;
-    assign mem_one_slv_bus.ar_qos       = mem_one_arqos;
-    assign mem_one_slv_bus.ar_valid     = mem_one_arvalid;
-    assign mem_one_slv_bus.ar_ready     = mem_one_arready;
-    assign mem_one_slv_bus.w_data       = mem_one_wdata;
-    assign mem_one_slv_bus.w_strb       = mem_one_wstrb;
-    assign mem_one_slv_bus.w_last       = mem_one_wlast;
-    assign mem_one_slv_bus.w_user       = mem_one_wuser;
-    assign mem_one_slv_bus.w_valid      = mem_one_wvalid;
-    assign mem_one_slv_bus.w_ready      = mem_one_wready;
-    assign mem_one_slv_bus.r_id         = mem_one_rid;
-    assign mem_one_slv_bus.r_data       = mem_one_rdata;
-    assign mem_one_slv_bus.r_strb       = mem_one_rstrb;
-    assign mem_one_slv_bus.r_last       = mem_one_rlast;
-    assign mem_one_slv_bus.r_user       = mem_one_ruser;
-    assign mem_one_slv_bus.r_valid      = mem_one_rvalid;
-    assign mem_one_slv_bus.r_ready      = mem_one_rready;
-    assign mem_one_slv_bus.b_id         = mem_one_bid;
-    assign mem_one_slv_bus.b_resp       = mem_one_bresp;
-    assign mem_one_slv_bus.b_user       = mem_one_buser;
-    assign mem_one_slv_bus.b_valid      = mem_one_bvalid;
-    assign mem_one_slv_bus.b_ready      = mem_one_bready;
+    // assign mem_one_awid     = mem_one_slv_bus.aw_id;
+    // assign mem_one_awaddr   = mem_one_slv_bus.aw_addr;
+    // assign mem_one_awlen    = mem_one_slv_bus.aw_len;
+    // assign mem_one_awsize   = mem_one_slv_bus.aw_size;
+    // assign mem_one_awburst  = mem_one_slv_bus.aw_burst;
+    // assign mem_one_awlock   = mem_one_slv_bus.aw_lock;
+    // assign mem_one_awcache  = mem_one_slv_bus.aw_cache;
+    // assign mem_one_awprot   = mem_one_slv_bus.aw_prot;
+    // assign mem_one_awregion = mem_one_slv_bus.aw_region;
+    // assign mem_one_awuser   = mem_one_slv_bus.aw_user;
+    // assign mem_one_awqos    = mem_one_slv_bus.aw_qos;
+    // assign mem_one_awvalid  = mem_one_slv_bus.aw_valid;
+    // assign mem_one_awready  = mem_one_slv_bus.aw_ready;
+    // assign mem_one_arid     = mem_one_slv_bus.ar_id;
+    // assign mem_one_araddr   = mem_one_slv_bus.ar_addr;
+    // assign mem_one_arlen    = mem_one_slv_bus.ar_len;
+    // assign mem_one_arsize   = mem_one_slv_bus.ar_size;
+    // assign mem_one_arburst  = mem_one_slv_bus.ar_burst;
+    // assign mem_one_arlock   = mem_one_slv_bus.ar_lock;
+    // assign mem_one_arcache  = mem_one_slv_bus.ar_cache;
+    // assign mem_one_arprot   = mem_one_slv_bus.ar_prot;
+    // assign mem_one_arregion = mem_one_slv_bus.ar_region;
+    // assign mem_one_aruser   = mem_one_slv_bus.ar_user;
+    // assign mem_one_arqos    = mem_one_slv_bus.ar_qos;
+    // assign mem_one_arvalid  = mem_one_slv_bus.ar_valid;
+    // assign mem_one_arready  = mem_one_slv_bus.ar_ready;
+    // assign mem_one_wdata    = mem_one_slv_bus.w_data;
+    // assign mem_one_wstrb    = mem_one_slv_bus.w_strb;
+    // assign mem_one_wlast    = mem_one_slv_bus.w_last;
+    // assign mem_one_wuser    = mem_one_slv_bus.w_user;
+    // assign mem_one_wvalid   = mem_one_slv_bus.w_valid;
+    // assign mem_one_wready   = mem_one_slv_bus.w_ready;
+    // assign mem_one_rid      = mem_one_slv_bus.r_id;
+    // assign mem_one_rdata    = mem_one_slv_bus.r_data;
+    // assign mem_one_rlast    = mem_one_slv_bus.r_last;
+    // assign mem_one_ruser    = mem_one_slv_bus.r_user;
+    // assign mem_one_rvalid   = mem_one_slv_bus.r_valid;
+    // assign mem_one_rready   = mem_one_slv_bus.r_ready;
+    // assign mem_one_bid      = mem_one_slv_bus.b_id;
+    // assign mem_one_bresp    = mem_one_slv_bus.b_resp;
+    // assign mem_one_buser    = mem_one_slv_bus.b_user;
+    // assign mem_one_bvalid   = mem_one_slv_bus.b_valid;
+    // assign mem_one_bready   = mem_one_slv_bus.b_ready;
 
     axi_sim_mem_intf #(
         .AXI_ADDR_WIDTH      (AXI_ADDR_WIDTH),
@@ -727,7 +728,7 @@ module module_top (
         .mon_r_user_o       (),
         .mon_r_beat_count_o (),
         .mon_r_last_o       ()
-    )
+    );
 
     //=====================================================================
     logic [14:0] vga_address;

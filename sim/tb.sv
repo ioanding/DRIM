@@ -58,6 +58,7 @@ always_ff @(posedge clk or negedge rst_n) begin
 end
 
 initial begin
+    $readmemh("memory.txt", module_top.i_axi_sim_mem_intf.i_sim_mem.mem, 0, 999);
     sim_initialize();
     rst_n=1;
     @(posedge clk);

@@ -5,6 +5,7 @@
 
 //! @title Simple valid.ready to AXI4 Master
 //! @author Giorgos Pelekidis
+`include "enum.sv"
 module AXI4_master #(
   parameter ID_SEL        = 0,    //! Master's ID
   parameter ID_WIDTH      = 4,    //! Number of Transaction ID bits
@@ -40,7 +41,7 @@ module AXI4_master #(
   output logic                    AWVALID,  
   input  logic                    AWREADY,  //! AWREADY is HIGH when the slave can accept a request.
   output logic [ADDR_WIDTH-1:0]   AWADDR,   //! Holds the address of the first transfer in a Write transaction.
-  output burst_type               AWBURST,  //! Describes how the address increments between transfers in a transaction. In this case always Incrimental.
+  output axi_pkg::burst_t         AWBURST,  //! Describes how the address increments between transfers in a transaction. In this case always Incrimental.
   output logic [7:0]              AWLEN,    //! The total number of transfers in a transaction, encoded as: Length=AxLEN+1. In this case always 7.
   output logic [2:0]              AWSIZE,   //! Indicates the maximum number of bytes in each data transfer within a transaction. In this case always 4.
   output logic [ID_WIDTH-1:0]     AWID,     //! Transaction ID. In this case every master has a fixed ID selected by the ID_SEL parameter.
@@ -63,7 +64,7 @@ module AXI4_master #(
   input  logic                    ARREADY,  //! ARREADY is HIGH when a slave can accept a request.
   output logic                    ARVALID,  //! ARVALID is HIGH when the master holds valid Request signals for a slave.
   output logic [ADDR_WIDTH-1:0]   ARADDR,   //! Holds the address of the first transfer in a Read transaction.
-  output burst_type               ARBURST,  //! Describes how the address increments between transfers in a transaction. In this case always Incrimental.
+  output axi_pkg::burst_t         ARBURST,  //! Describes how the address increments between transfers in a transaction. In this case always Incrimental.
   output logic [7:0]              ARLEN,    //! The total number of transfers in a transaction, encoded as: Length=AxLEN+1. In this case always 7.
   output logic [2:0]              ARSIZE,   //! Indicates the maximum number of bytes in each data transfer within a transaction. In this case always 4.
   output logic [ID_WIDTH-1:0]     ARID,     //! Transaction ID. In this case every master has a fixed ID selected by the ID_SEL parameter.
@@ -99,7 +100,7 @@ logic [ADDR_WIDTH-1:0]  araddr;
 logic                   arvalid;
 
 // AXI related signals
-burst_type            burst;  //! Shared Burst type-signal assigned to both AW-channel and AR-channel.
+axi_pkg::burst_t            burst;  //! Shared Burst type-signal assigned to both AW-channel and AR-channel.
 logic [2          :0] size;   //! Shared transfer Size-type signal assigned to both AWSIZE and ARSIZE.
 logic [7          :0] len;    //! Shared transaction Length signal assigned to both AWLEN and ARLEN.     
 logic [ID_WIDTH-1 :0] id_sel; //! Stores a constant ID for each master depending on the ID_SEL parameter.
