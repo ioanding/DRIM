@@ -3,125 +3,140 @@
 `default_nettype none
 `include "axi/typedef.svh"
 module axi_intercon
-   (input  logic        clk_i,
-    input  logic        rst_ni,
-    input  logic  [3:0] i_icache_awid,
-    input  logic [31:0] i_icache_awaddr,
-    input  logic  [7:0] i_icache_awlen,
-    input  logic  [2:0] i_icache_awsize,
-    input  logic  [1:0] i_icache_awburst,
-    input  logic        i_icache_awlock,
-    input  logic  [3:0] i_icache_awcache,
-    input  logic  [2:0] i_icache_awprot,
-    input  logic  [3:0] i_icache_awregion,
-    input  logic  [3:0] i_icache_awqos,
-    input  logic        i_icache_awvalid,
-    output logic        o_icache_awready,
-    input  logic  [3:0] i_icache_arid,
-    input  logic [31:0] i_icache_araddr,
-    input  logic  [7:0] i_icache_arlen,
-    input  logic  [2:0] i_icache_arsize,
-    input  logic  [1:0] i_icache_arburst,
-    input  logic        i_icache_arlock,
-    input  logic  [3:0] i_icache_arcache,
-    input  logic  [2:0] i_icache_arprot,
-    input  logic  [3:0] i_icache_arregion,
-    input  logic  [3:0] i_icache_arqos,
-    input  logic        i_icache_arvalid,
-    output logic        o_icache_arready,
-    input  logic [31:0] i_icache_wdata,
-    input  logic  [3:0] i_icache_wstrb,
-    input  logic        i_icache_wlast,
-    input  logic        i_icache_wvalid,
-    output logic        o_icache_wready,
-    output logic  [3:0] o_icache_bid,
-    output logic  [1:0] o_icache_bresp,
-    output logic        o_icache_bvalid,
-    input  logic        i_icache_bready,
-    output logic  [3:0] o_icache_rid,
-    output logic [31:0] o_icache_rdata,
-    output logic  [1:0] o_icache_rresp,
-    output logic        o_icache_rlast,
-    output logic        o_icache_rvalid,
-    input  logic        i_icache_rready,
-    input  logic  [3:0] i_dcache_awid,
-    input  logic [31:0] i_dcache_awaddr,
-    input  logic  [7:0] i_dcache_awlen,
-    input  logic  [2:0] i_dcache_awsize,
-    input  logic  [1:0] i_dcache_awburst,
-    input  logic        i_dcache_awlock,
-    input  logic  [3:0] i_dcache_awcache,
-    input  logic  [2:0] i_dcache_awprot,
-    input  logic  [3:0] i_dcache_awregion,
-    input  logic  [3:0] i_dcache_awqos,
-    input  logic        i_dcache_awvalid,
-    output logic        o_dcache_awready,
-    input  logic  [3:0] i_dcache_arid,
-    input  logic [31:0] i_dcache_araddr,
-    input  logic  [7:0] i_dcache_arlen,
-    input  logic  [2:0] i_dcache_arsize,
-    input  logic  [1:0] i_dcache_arburst,
-    input  logic        i_dcache_arlock,
-    input  logic  [3:0] i_dcache_arcache,
-    input  logic  [2:0] i_dcache_arprot,
-    input  logic  [3:0] i_dcache_arregion,
-    input  logic  [3:0] i_dcache_arqos,
-    input  logic        i_dcache_arvalid,
-    output logic        o_dcache_arready,
-    input  logic [31:0] i_dcache_wdata,
-    input  logic  [3:0] i_dcache_wstrb,
-    input  logic        i_dcache_wlast,
-    input  logic        i_dcache_wvalid,
-    output logic        o_dcache_wready,
-    output logic  [3:0] o_dcache_bid,
-    output logic  [1:0] o_dcache_bresp,
-    output logic        o_dcache_bvalid,
-    input  logic        i_dcache_bready,
-    output logic  [3:0] o_dcache_rid,
-    output logic [31:0] o_dcache_rdata,
-    output logic  [1:0] o_dcache_rresp,
-    output logic        o_dcache_rlast,
-    output logic        o_dcache_rvalid,
-    input  logic        i_dcache_rready,
-    output logic  [4:0] o_mem_one_awid,
-    output logic [31:0] o_mem_one_awaddr,
-    output logic  [7:0] o_mem_one_awlen,
-    output logic  [2:0] o_mem_one_awsize,
-    output logic  [1:0] o_mem_one_awburst,
-    output logic        o_mem_one_awlock,
-    output logic  [3:0] o_mem_one_awcache,
-    output logic  [2:0] o_mem_one_awprot,
-    output logic  [3:0] o_mem_one_awregion,
-    output logic  [3:0] o_mem_one_awqos,
-    output logic        o_mem_one_awvalid,
-    input  logic        i_mem_one_awready,
-    output logic  [4:0] o_mem_one_arid,
-    output logic [31:0] o_mem_one_araddr,
-    output logic  [7:0] o_mem_one_arlen,
-    output logic  [2:0] o_mem_one_arsize,
-    output logic  [1:0] o_mem_one_arburst,
-    output logic        o_mem_one_arlock,
-    output logic  [3:0] o_mem_one_arcache,
-    output logic  [2:0] o_mem_one_arprot,
-    output logic  [3:0] o_mem_one_arregion,
-    output logic  [3:0] o_mem_one_arqos,
-    output logic        o_mem_one_arvalid,
-    input  logic        i_mem_one_arready,
-    output logic [31:0] o_mem_one_wdata,
-    output logic  [3:0] o_mem_one_wstrb,
-    output logic        o_mem_one_wlast,
-    output logic        o_mem_one_wvalid,
-    input  logic        i_mem_one_wready,
-    input  logic  [4:0] i_mem_one_bid,
-    input  logic  [1:0] i_mem_one_bresp,
-    input  logic        i_mem_one_bvalid,
-    output logic        o_mem_one_bready,
-    input  logic  [4:0] i_mem_one_rid,
-    input  logic [31:0] i_mem_one_rdata,
-    input  logic  [1:0] i_mem_one_rresp,
-    input  logic        i_mem_one_rlast,
-    input  logic        i_mem_one_rvalid,
-    output logic        o_mem_one_rready);
+   (input  wire        clk_i,
+    input  wire        rst_ni,
+    input  wire  [3:0] i_icache_awid,
+    input  wire [31:0] i_icache_awaddr,
+    input  wire  [7:0] i_icache_awlen,
+    input  wire  [2:0] i_icache_awsize,
+    input  wire  [1:0] i_icache_awburst,
+    input  wire        i_icache_awlock,
+    input  wire  [3:0] i_icache_awcache,
+    input  wire  [2:0] i_icache_awprot,
+    input  wire  [3:0] i_icache_awregion,
+    input  wire  [0:0] i_icache_awuser,
+    input  wire  [3:0] i_icache_awqos,
+    input  wire        i_icache_awvalid,
+    output wire        o_icache_awready,
+    input  wire  [3:0] i_icache_arid,
+    input  wire [31:0] i_icache_araddr,
+    input  wire  [7:0] i_icache_arlen,
+    input  wire  [2:0] i_icache_arsize,
+    input  wire  [1:0] i_icache_arburst,
+    input  wire        i_icache_arlock,
+    input  wire  [3:0] i_icache_arcache,
+    input  wire  [2:0] i_icache_arprot,
+    input  wire  [3:0] i_icache_arregion,
+    input  wire  [0:0] i_icache_aruser,
+    input  wire  [3:0] i_icache_arqos,
+    input  wire        i_icache_arvalid,
+    output wire        o_icache_arready,
+    input  wire [31:0] i_icache_wdata,
+    input  wire  [3:0] i_icache_wstrb,
+    input  wire        i_icache_wlast,
+    input  wire  [0:0] i_icache_wuser,
+    input  wire        i_icache_wvalid,
+    output wire        o_icache_wready,
+    output wire  [3:0] o_icache_bid,
+    output wire  [1:0] o_icache_bresp,
+    output wire        o_icache_bvalid,
+    output wire  [0:0] o_icache_buser,
+    input  wire        i_icache_bready,
+    output wire  [3:0] o_icache_rid,
+    output wire [31:0] o_icache_rdata,
+    output wire  [1:0] o_icache_rresp,
+    output wire        o_icache_rlast,
+    output wire  [0:0] o_icache_ruser,
+    output wire        o_icache_rvalid,
+    input  wire        i_icache_rready,
+    input  wire  [3:0] i_dcache_awid,
+    input  wire [31:0] i_dcache_awaddr,
+    input  wire  [7:0] i_dcache_awlen,
+    input  wire  [2:0] i_dcache_awsize,
+    input  wire  [1:0] i_dcache_awburst,
+    input  wire        i_dcache_awlock,
+    input  wire  [3:0] i_dcache_awcache,
+    input  wire  [2:0] i_dcache_awprot,
+    input  wire  [3:0] i_dcache_awregion,
+    input  wire  [0:0] i_dcache_awuser,
+    input  wire  [3:0] i_dcache_awqos,
+    input  wire        i_dcache_awvalid,
+    output wire        o_dcache_awready,
+    input  wire  [3:0] i_dcache_arid,
+    input  wire [31:0] i_dcache_araddr,
+    input  wire  [7:0] i_dcache_arlen,
+    input  wire  [2:0] i_dcache_arsize,
+    input  wire  [1:0] i_dcache_arburst,
+    input  wire        i_dcache_arlock,
+    input  wire  [3:0] i_dcache_arcache,
+    input  wire  [2:0] i_dcache_arprot,
+    input  wire  [3:0] i_dcache_arregion,
+    input  wire  [0:0] i_dcache_aruser,
+    input  wire  [3:0] i_dcache_arqos,
+    input  wire        i_dcache_arvalid,
+    output wire        o_dcache_arready,
+    input  wire [31:0] i_dcache_wdata,
+    input  wire  [3:0] i_dcache_wstrb,
+    input  wire        i_dcache_wlast,
+    input  wire  [0:0] i_dcache_wuser,
+    input  wire        i_dcache_wvalid,
+    output wire        o_dcache_wready,
+    output wire  [3:0] o_dcache_bid,
+    output wire  [1:0] o_dcache_bresp,
+    output wire        o_dcache_bvalid,
+    output wire  [0:0] o_dcache_buser,
+    input  wire        i_dcache_bready,
+    output wire  [3:0] o_dcache_rid,
+    output wire [31:0] o_dcache_rdata,
+    output wire  [1:0] o_dcache_rresp,
+    output wire        o_dcache_rlast,
+    output wire  [0:0] o_dcache_ruser,
+    output wire        o_dcache_rvalid,
+    input  wire        i_dcache_rready,
+    output wire  [4:0] o_mem_one_awid,
+    output wire [31:0] o_mem_one_awaddr,
+    output wire  [7:0] o_mem_one_awlen,
+    output wire  [2:0] o_mem_one_awsize,
+    output wire  [1:0] o_mem_one_awburst,
+    output wire        o_mem_one_awlock,
+    output wire  [3:0] o_mem_one_awcache,
+    output wire  [2:0] o_mem_one_awprot,
+    output wire  [3:0] o_mem_one_awregion,
+    output wire  [0:0] o_mem_one_awuser,
+    output wire  [3:0] o_mem_one_awqos,
+    output wire        o_mem_one_awvalid,
+    input  wire        i_mem_one_awready,
+    output wire  [4:0] o_mem_one_arid,
+    output wire [31:0] o_mem_one_araddr,
+    output wire  [7:0] o_mem_one_arlen,
+    output wire  [2:0] o_mem_one_arsize,
+    output wire  [1:0] o_mem_one_arburst,
+    output wire        o_mem_one_arlock,
+    output wire  [3:0] o_mem_one_arcache,
+    output wire  [2:0] o_mem_one_arprot,
+    output wire  [3:0] o_mem_one_arregion,
+    output wire  [0:0] o_mem_one_aruser,
+    output wire  [3:0] o_mem_one_arqos,
+    output wire        o_mem_one_arvalid,
+    input  wire        i_mem_one_arready,
+    output wire [31:0] o_mem_one_wdata,
+    output wire  [3:0] o_mem_one_wstrb,
+    output wire        o_mem_one_wlast,
+    output wire  [0:0] o_mem_one_wuser,
+    output wire        o_mem_one_wvalid,
+    input  wire        i_mem_one_wready,
+    input  wire  [4:0] i_mem_one_bid,
+    input  wire  [1:0] i_mem_one_bresp,
+    input  wire        i_mem_one_bvalid,
+    input  wire  [0:0] i_mem_one_buser,
+    output wire        o_mem_one_bready,
+    input  wire  [4:0] i_mem_one_rid,
+    input  wire [31:0] i_mem_one_rdata,
+    input  wire  [1:0] i_mem_one_rresp,
+    input  wire        i_mem_one_rlast,
+    input  wire  [0:0] i_mem_one_ruser,
+    input  wire        i_mem_one_rvalid,
+    output wire        o_mem_one_rready);
 
 
   localparam int unsigned NoMasters   = 32'd2;    // How many Axi Masters there are
@@ -183,8 +198,6 @@ module axi_intercon
    mst_resp_t [0:0] slaves_resp;
 
    //Master icache
-   assign masters_req[0].aw.user = 0;
-   assign masters_req[0].ar.user = 0;
    assign masters_req[0].aw.id = i_icache_awid;
    assign masters_req[0].aw.addr = i_icache_awaddr;
    assign masters_req[0].aw.len = i_icache_awlen;
@@ -194,6 +207,7 @@ module axi_intercon
    assign masters_req[0].aw.cache = i_icache_awcache;
    assign masters_req[0].aw.prot = i_icache_awprot;
    assign masters_req[0].aw.region = i_icache_awregion;
+   assign masters_req[0].aw.user = i_icache_awuser;
    assign masters_req[0].aw.qos = i_icache_awqos;
    assign masters_req[0].aw.atop = 6'd0;
    assign masters_req[0].aw_valid = i_icache_awvalid;
@@ -207,28 +221,30 @@ module axi_intercon
    assign masters_req[0].ar.cache = i_icache_arcache;
    assign masters_req[0].ar.prot = i_icache_arprot;
    assign masters_req[0].ar.region = i_icache_arregion;
+   assign masters_req[0].ar.user = i_icache_aruser;
    assign masters_req[0].ar.qos = i_icache_arqos;
    assign masters_req[0].ar_valid = i_icache_arvalid;
    assign o_icache_arready = masters_resp[0].ar_ready;
    assign masters_req[0].w.data = i_icache_wdata;
    assign masters_req[0].w.strb = i_icache_wstrb;
    assign masters_req[0].w.last = i_icache_wlast;
+   assign masters_req[0].w.user = i_icache_wuser;
    assign masters_req[0].w_valid = i_icache_wvalid;
    assign o_icache_wready = masters_resp[0].w_ready;
    assign o_icache_bid = masters_resp[0].b.id;
    assign o_icache_bresp = masters_resp[0].b.resp;
    assign o_icache_bvalid = masters_resp[0].b_valid;
+   assign o_icache_buser = masters_resp[0].b.user;
    assign masters_req[0].b_ready = i_icache_bready;
    assign o_icache_rid = masters_resp[0].r.id;
    assign o_icache_rdata = masters_resp[0].r.data;
    assign o_icache_rresp = masters_resp[0].r.resp;
    assign o_icache_rlast = masters_resp[0].r.last;
+   assign o_icache_ruser = masters_resp[0].r.user;
    assign o_icache_rvalid = masters_resp[0].r_valid;
    assign masters_req[0].r_ready = i_icache_rready;
 
    //Master dcache
-   assign masters_req[1].aw.user = 0;
-   assign masters_req[1].ar.user = 0;
    assign masters_req[1].aw.id = i_dcache_awid;
    assign masters_req[1].aw.addr = i_dcache_awaddr;
    assign masters_req[1].aw.len = i_dcache_awlen;
@@ -238,6 +254,7 @@ module axi_intercon
    assign masters_req[1].aw.cache = i_dcache_awcache;
    assign masters_req[1].aw.prot = i_dcache_awprot;
    assign masters_req[1].aw.region = i_dcache_awregion;
+   assign masters_req[1].aw.user = i_dcache_awuser;
    assign masters_req[1].aw.qos = i_dcache_awqos;
    assign masters_req[1].aw.atop = 6'd0;
    assign masters_req[1].aw_valid = i_dcache_awvalid;
@@ -251,22 +268,26 @@ module axi_intercon
    assign masters_req[1].ar.cache = i_dcache_arcache;
    assign masters_req[1].ar.prot = i_dcache_arprot;
    assign masters_req[1].ar.region = i_dcache_arregion;
+   assign masters_req[1].ar.user = i_dcache_aruser;
    assign masters_req[1].ar.qos = i_dcache_arqos;
    assign masters_req[1].ar_valid = i_dcache_arvalid;
    assign o_dcache_arready = masters_resp[1].ar_ready;
    assign masters_req[1].w.data = i_dcache_wdata;
    assign masters_req[1].w.strb = i_dcache_wstrb;
    assign masters_req[1].w.last = i_dcache_wlast;
+   assign masters_req[1].w.user = i_dcache_wuser;
    assign masters_req[1].w_valid = i_dcache_wvalid;
    assign o_dcache_wready = masters_resp[1].w_ready;
    assign o_dcache_bid = masters_resp[1].b.id;
    assign o_dcache_bresp = masters_resp[1].b.resp;
    assign o_dcache_bvalid = masters_resp[1].b_valid;
+   assign o_dcache_buser = masters_resp[1].b.user;
    assign masters_req[1].b_ready = i_dcache_bready;
    assign o_dcache_rid = masters_resp[1].r.id;
    assign o_dcache_rdata = masters_resp[1].r.data;
    assign o_dcache_rresp = masters_resp[1].r.resp;
    assign o_dcache_rlast = masters_resp[1].r.last;
+   assign o_dcache_ruser = masters_resp[1].r.user;
    assign o_dcache_rvalid = masters_resp[1].r_valid;
    assign masters_req[1].r_ready = i_dcache_rready;
 
@@ -280,6 +301,7 @@ module axi_intercon
    assign o_mem_one_awcache = slaves_req[0].aw.cache;
    assign o_mem_one_awprot = slaves_req[0].aw.prot;
    assign o_mem_one_awregion = slaves_req[0].aw.region;
+   assign o_mem_one_awuser = slaves_req[0].aw.user;
    assign o_mem_one_awqos = slaves_req[0].aw.qos;
    assign o_mem_one_awvalid = slaves_req[0].aw_valid;
    assign slaves_resp[0].aw_ready = i_mem_one_awready;
@@ -292,22 +314,26 @@ module axi_intercon
    assign o_mem_one_arcache = slaves_req[0].ar.cache;
    assign o_mem_one_arprot = slaves_req[0].ar.prot;
    assign o_mem_one_arregion = slaves_req[0].ar.region;
+   assign o_mem_one_aruser = slaves_req[0].ar.user;
    assign o_mem_one_arqos = slaves_req[0].ar.qos;
    assign o_mem_one_arvalid = slaves_req[0].ar_valid;
    assign slaves_resp[0].ar_ready = i_mem_one_arready;
    assign o_mem_one_wdata = slaves_req[0].w.data;
    assign o_mem_one_wstrb = slaves_req[0].w.strb;
    assign o_mem_one_wlast = slaves_req[0].w.last;
+   assign o_mem_one_wuser = slaves_req[0].w.user;
    assign o_mem_one_wvalid = slaves_req[0].w_valid;
    assign slaves_resp[0].w_ready = i_mem_one_wready;
    assign slaves_resp[0].b.id = i_mem_one_bid;
    assign slaves_resp[0].b.resp = i_mem_one_bresp;
    assign slaves_resp[0].b_valid = i_mem_one_bvalid;
+   assign slaves_resp[0].b.user = i_mem_one_buser;
    assign o_mem_one_bready = slaves_req[0].b_ready;
    assign slaves_resp[0].r.id = i_mem_one_rid;
    assign slaves_resp[0].r.data = i_mem_one_rdata;
    assign slaves_resp[0].r.resp = i_mem_one_rresp;
    assign slaves_resp[0].r.last = i_mem_one_rlast;
+   assign slaves_resp[0].r.user = i_mem_one_ruser;
    assign slaves_resp[0].r_valid = i_mem_one_rvalid;
    assign o_mem_one_rready = slaves_req[0].r_ready;
 

@@ -18,7 +18,7 @@ module cache_top #(
 
   parameter USE_AXI    = 0,
   parameter AXI_AW     = 32,
-  parameter AXI_DW     = 64
+  parameter AXI_DW     = 32
 )(
   input logic clk,
   input logic resetn,
