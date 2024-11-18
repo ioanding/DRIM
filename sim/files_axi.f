@@ -141,12 +141,10 @@
 ../rtl/axi/src/axi_chan_compare.sv
 ../rtl/axi/src/axi_dumper.sv
 ../rtl/axi/src/axi_sim_mem.sv
-#../rtl/axi/src/axi_test.sv
 
 ../rtl/axi/src/axi_xbar.sv
 
 ../rtl/axi/src/axi_xp.sv
 ../rtl/axi/src/axi_xp_buffered.sv
 
-#../rtl/axi_fabric/axi_intercon.vh
-../rtl/axi_fabric/axi_intercon.sv
+../rtl/axi/src/axi_intercon.sv

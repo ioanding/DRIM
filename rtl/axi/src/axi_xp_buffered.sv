@@ -1,14 +1,20 @@
-// Copyright (c) 2024 Democritus University of Thrace.
-// This section will be replaced by the license text.
+// Copyright (c) 2024-2025 Integrated Circuits Lab, Democritus University of Thrace, Greece.
+// 
+// Copyright and related rights are licensed under the MIT License (the "License");
+// you may not use this file except in compliance with the License. Unless required
+// by applicable law or agreed to in writing, software, hardware and materials 
+// distributed under this License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+// specific language governing permissions and limitations under the License.
 //
 // Authors:
 // - Ioannis Dingolis <ioanding@ee.duth.gr>
 
+`include "axi/typedef.svh"
+
 // AXI Crosspoint (XP) with homomorphous slave and master ports including
 // an input queue of configurable depth for each slave port to reduce
 // backpressure in mesh topologies.
-
-`include "axi/typedef.svh"
 
 module axi_xp_buffered #(
   // Atomic operations settings
