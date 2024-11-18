@@ -1,7 +1,7 @@
 `ifdef MODEL_TECH
     `include "structs.sv"
 `endif
-`include "enum.sv"
+
 module cache_top #(
   parameter ADDR_BITS     = 32,  // default: 32
   parameter ISTR_DW       = 32,  // default: 32
@@ -71,7 +71,7 @@ module cache_top #(
   output logic                  ic_m_axi_awvalid,
   input  logic                  ic_m_axi_awready,
   output logic [AXI_AW-1:0]     ic_m_axi_awaddr,
-  output axi_pkg::burst_t             ic_m_axi_awburst,
+  output axi_pkg::burst_t       ic_m_axi_awburst,
   output logic [7:0]            ic_m_axi_awlen,
   output logic [2:0]            ic_m_axi_awsize,
   output logic [3:0]            ic_m_axi_awid,

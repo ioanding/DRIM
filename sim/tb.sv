@@ -4,20 +4,27 @@ module tb();
 logic   rst_n, clk;
 integer f,c;
 
+// Parameters for simulation
+// Clock period
+localparam time         clk_period   = 10ns;
+// Number of total axi_mem_sims
+localparam int unsigned numberOfMems = 4;
+// Address space size for each axi_mem_sim
+localparam int unsigned memAddrSpace = 32'd68;
 
 // Initialize the module
-    module_top  module_top(
-        .clk    (clk),
-        .rst_n  (rst_n)
+    module_top  #(
+        .ClkPeriod    ( clk_period   ),
+        .NoAxiMemSims ( numberOfMems ),
+        .UnqAddrSpace ( memAddrSpace )
+    ) module_top (
+        .clk    ( clk   ),
+        .rst_n  ( rst_n )
         );
 // Generate clock
-always
-    begin
-    // If you change the clock period, make sure to adjust the local 
-    // parameters APPL_DELAY and ACQ_DELAY in module_top.sv for
-    // axi_mem_sim to work as intended.
-    // Default clock period = 10ns.
-    clk = 1; #5; clk = 0; #5;
+always begin
+    clk = 1; #(clk_period/2);
+    clk = 0; #(clk_period/2);
 end
 // Initialize the files
 task sim_initialize;
@@ -63,7 +70,13 @@ always_ff @(posedge clk or negedge rst_n) begin
 end
 
 initial begin
-    $readmemh("memory.txt", module_top.i_axi_sim_mem_intf.i_sim_mem.mem, 0, 9999999);
+
+    // How to transform the below code into a loop?
+    $readmemh("memory.txt", module_top.gen_axi_mem_sim[0].i_axi_sim_mem_intf.i_sim_mem.mem, 0);    
+    $readmemh("memory.txt", module_top.gen_axi_mem_sim[1].i_axi_sim_mem_intf.i_sim_mem.mem, 0);
+    $readmemh("memory.txt", module_top.gen_axi_mem_sim[2].i_axi_sim_mem_intf.i_sim_mem.mem, 0);
+    $readmemh("memory.txt", module_top.gen_axi_mem_sim[3].i_axi_sim_mem_intf.i_sim_mem.mem, 0);
+
     sim_initialize();
     rst_n=1;
     @(posedge clk);

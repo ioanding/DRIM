@@ -192,7 +192,7 @@ add wave -noupdate /tb/module_top/top_processor/rob/head
 add wave -noupdate /tb/module_top/top_processor/rob/tail
 add wave -noupdate /tb/module_top/top_processor/rob/counter
 add wave -noupdate /tb/module_top/top_processor/rob/counter_actual
-add wave -noupdate -divider <NULL>
+add wave -noupdate -divider {Instr Cache}
 add wave -noupdate /tb/module_top/caches_top/genblk1/icache_axi_master/AWVALID
 add wave -noupdate /tb/module_top/caches_top/genblk1/icache_axi_master/AWREADY
 add wave -noupdate /tb/module_top/caches_top/genblk1/icache_axi_master/AWADDR
@@ -222,9 +222,41 @@ add wave -noupdate /tb/module_top/caches_top/genblk1/icache_axi_master/RID
 add wave -noupdate /tb/module_top/caches_top/genblk1/icache_axi_master/RRESP
 add wave -noupdate /tb/module_top/caches_top/genblk1/icache_axi_master/RVALID
 add wave -noupdate /tb/module_top/caches_top/genblk1/icache_axi_master/RREADY
-add wave -noupdate -divider {Main Memory}
+add wave -noupdate -divider {Data Cache}
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/AWVALID
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/AWREADY
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/AWADDR
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/AWBURST
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/AWLEN
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/AWSIZE
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/AWID
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/WVALID
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/WREADY
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/WDATA
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/WLAST
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/WSTRB
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/BID
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/BRESP
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/BVALID
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/BREADY
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/ARREADY
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/ARVALID
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/ARADDR
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/ARBURST
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/ARLEN
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/ARSIZE
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/ARID
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/RDATA
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/RLAST
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/RID
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/RRESP
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/RVALID
+add wave -noupdate /tb/module_top/caches_top/genblk1/dcache_axi_master/RREADY
+add wave -noupdate -divider Interconnect
+add wave -noupdate /tb/module_top/axi_intercon/masters_resp
+add wave -noupdate -expand /tb/module_top/axi_intercon/slaves_resp
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {167 ns} 0}
+WaveRestoreCursors {{Cursor 1} {287 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 159
 configure wave -valuecolwidth 176
@@ -240,4 +272,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {125 ns} {407 ns}
+WaveRestoreZoom {0 ns} {3162 ns}
